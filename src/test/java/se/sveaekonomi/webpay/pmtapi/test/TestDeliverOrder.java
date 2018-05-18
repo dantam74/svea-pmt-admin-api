@@ -28,7 +28,7 @@ public class TestDeliverOrder {
 			client.loadConfig("config-test.xml");
 			client.init();
 			
-			String result = client.deliverCompleteOrder(183315L);
+			String result = client.deliverCompleteOrderNoCheck(928312L);
 			
 			System.out.println(result);
 			

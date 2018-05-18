@@ -177,4 +177,51 @@ public class PmtApiClientRF {
 	}
 	
 	
+	/**
+	 * Tells Svea Ekonomi that this order is delivered and should be billed.
+	 * No order rows are supplied, meaning all deliverable rows should be delivered.
+	 * 
+	 * @param orderId		The order to be delivered
+	 * @return				
+	 * @throws Exception
+	 */
+	public String deliverCompleteOrderNoCheck(Long orderId) throws Exception {
+		
+		String ts = PmtApiUtil.getTimestampStr();
+		List<Long> lines = new ArrayList<Long>();
+		
+		String body = "{ \"orderRowIds\": " + JsonUtil.gson.toJson(lines) + " }";
+		
+		String auth = PmtApiUtil.calculateAuthHeader(merchantId, body, secretWord, ts);
+
+		Call<ResponseBody> call = service.deliverOrder(auth, ts, orderId.toString(), body);
+		
+		Response<ResponseBody> response = call.execute();
+		
+		String resultMsg = null; 
+
+		if (response.errorBody()!=null && response.errorBody().string()!=null && response.errorBody().string().length()>0) {
+			clientLog.debug(response.errorBody().string());
+			resultMsg = response.errorBody().string();
+		} else {
+			if (response.code()==200) {
+				resultMsg = response.body().string();
+				clientLog.debug(response.message());
+				clientLog.debug(resultMsg);
+				clientLog.debug(response.raw().toString());
+			} else {
+				resultMsg = response.message();
+				clientLog.debug(response.code() + " : " + response.message());
+			}
+		}		
+
+		if (resultMsg!=null && resultMsg.trim().length()>0) {
+			return resultMsg;
+		} else {
+			return null;
+		}
+		
+	}
+	
+	
 }
