@@ -24,11 +24,14 @@ public class TestDeliverOrder {
 
 		PmtApiClientRF client = new PmtApiClientRF();
 		try {
-		
-			client.loadConfig("config-test.xml");
-			client.init();
 			
-			String result = client.deliverCompleteOrderNoCheck(928312L);
+			client.init(TestConfig.SERVER, TestConfig.MERCHANT_ID, TestConfig.SECRET_WORD);
+
+			if (TestConfig.checkoutOrderId==null) {
+				fail("No valid checkout order id specified in test-credentials.properties");
+			}
+			
+			String result = client.deliverCompleteOrderNoCheck(TestConfig.checkoutOrderId);
 			
 			System.out.println(result);
 			
