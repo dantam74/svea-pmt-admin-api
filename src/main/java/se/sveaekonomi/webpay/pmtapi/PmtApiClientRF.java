@@ -190,7 +190,7 @@ public class PmtApiClientRF {
 		String ts = PmtApiUtil.getTimestampStr();
 		List<Long> lines = new ArrayList<Long>();
 		
-		String body = "{ \"orderRowIds\": " + JsonUtil.gson.toJson(lines) + " }";
+		String body = "{\"orderRowIds\":" + JsonUtil.gson.toJson(lines) + "}";
 		
 		String auth = PmtApiUtil.calculateAuthHeader(merchantId, body, secretWord, ts);
 

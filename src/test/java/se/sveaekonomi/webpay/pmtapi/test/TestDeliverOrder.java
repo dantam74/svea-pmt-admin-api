@@ -31,7 +31,7 @@ public class TestDeliverOrder {
 				fail("No valid checkout order id specified in test-credentials.properties");
 			}
 			
-			String result = client.deliverCompleteOrderNoCheck(TestConfig.checkoutOrderId);
+			String result = client.deliverCompleteOrder(TestConfig.checkoutOrderId);
 			
 			System.out.println(result);
 			
