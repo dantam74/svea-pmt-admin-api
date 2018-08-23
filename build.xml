@@ -7,17 +7,27 @@
 	
 	<target name="pmt-admin-api">
 
-	  	<exec dir="${basedir}" executable="bash">
+	  	<exec dir="${basedir}" executable="bash" osfamily="unix">
 	  		<arg line="-c 'mvn install package assembly:single -DskipTests'"/>
 	  	</exec>
+		
+	  	<exec dir="${basedir}" executable="cmd" osfamily="windows">
+	  		<arg line="/C 'mvn install package assembly:single -DskipTests'"/>
+	  	</exec>
+		
 		
     </target>
 	
 	<target name="pmt-admin-api-release">
 
-	  	<exec dir="${basedir}" executable="bash">
+	  	<exec dir="${basedir}" executable="bash" osfamily="unix">
 	  		<arg line="-c 'mvn install -DperformRelease=true -DcreateChecksum=true -DskipTests'"/>
 	  	</exec>
+		
+	  	<exec dir="${basedir}" executable="cmd" osfamily="windows">
+	  		<arg line="/C 'mvn install -DperformRelease=true -DcreateChecksum=true -DskipTests'"/>
+	  	</exec>
+		
 		
     </target>
 	
