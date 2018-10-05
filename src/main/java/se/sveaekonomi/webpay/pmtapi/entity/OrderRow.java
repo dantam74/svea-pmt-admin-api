@@ -11,13 +11,13 @@ public class OrderRow {
 	@SerializedName("Name")
 	private String	name;
 	@SerializedName("Quantity")
-	private Double	quantity;
+	private Long	quantity;
 	@SerializedName("UnitPrice")
-	private Double	unitPrice;
+	private Long	unitPrice;
 	@SerializedName("DiscountPercent")
-	private Double	discountPercent;
+	private Long	discountPercent;
 	@SerializedName("VatPercent")
-	private Double	vatPercent;
+	private Long	vatPercent;
 	@SerializedName("Unit")
 	private String	unit;
 	@SerializedName("IsCancelled")
@@ -41,28 +41,28 @@ public class OrderRow {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Double getQuantity() {
+	public Long getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(Double quantity) {
+	public void setQuantity(Long quantity) {
 		this.quantity = quantity;
 	}
-	public Double getUnitPrice() {
+	public Long getUnitPrice() {
 		return unitPrice;
 	}
-	public void setUnitPrice(Double unitPrice) {
+	public void setUnitPrice(Long unitPrice) {
 		this.unitPrice = unitPrice;
 	}
-	public Double getDiscountPercent() {
+	public Long getDiscountPercent() {
 		return discountPercent;
 	}
-	public void setDiscountPercent(Double discountPercent) {
+	public void setDiscountPercent(Long discountPercent) {
 		this.discountPercent = discountPercent;
 	}
-	public Double getVatPercent() {
+	public Long getVatPercent() {
 		return vatPercent;
 	}
-	public void setVatPercent(Double vatPercent) {
+	public void setVatPercent(Long vatPercent) {
 		this.vatPercent = vatPercent;
 	}
 	public String getUnit() {

@@ -29,9 +29,9 @@ public class Order {
 	@SerializedName("IsCompany")
 	private boolean	isCompany;
 	@SerializedName("CancelledAmount")
-	private Double	cancelledAmount;
+	private Long	cancelledAmount;
 	@SerializedName("OrderAmount")
-	private	Double	orderAmount;
+	private	Long	orderAmount;
 	
 	@SerializedName("BillingAddress")
 	private Address billingAddress;
@@ -121,16 +121,16 @@ public class Order {
 	public void setCompany(boolean isCompany) {
 		this.isCompany = isCompany;
 	}
-	public Double getCancelledAmount() {
+	public Long getCancelledAmount() {
 		return cancelledAmount;
 	}
-	public void setCancelledAmount(Double cancelledAmount) {
+	public void setCancelledAmount(Long cancelledAmount) {
 		this.cancelledAmount = cancelledAmount;
 	}
-	public Double getOrderAmount() {
+	public Long getOrderAmount() {
 		return orderAmount;
 	}
-	public void setOrderAmount(Double orderAmount) {
+	public void setOrderAmount(Long orderAmount) {
 		this.orderAmount = orderAmount;
 	}
 	public List<OrderRow> getOrderRows() {

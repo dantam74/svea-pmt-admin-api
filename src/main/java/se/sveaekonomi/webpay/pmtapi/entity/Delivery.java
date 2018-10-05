@@ -12,11 +12,17 @@ public class Delivery {
 	@SerializedName("CreationDate")
 	private String	creationDate;
 	
+	@SerializedName("InvoiceId")
+	private String	invoiceId;
+	
 	@SerializedName("DeliveryAmount")
-	private Double	deliveryAmount;
+	private Long	deliveryAmount;
 	
 	@SerializedName("CreditedAmount")
-	private Double	creditedAmount;
+	private Long	creditedAmount;
+	
+	@SerializedName("Credits")
+	private List<Credit> credits;
 	
 	@SerializedName("OrderRows")
 	private List<OrderRow> orderRows;
@@ -39,21 +45,37 @@ public class Delivery {
 	public void setCreationDate(String creationDate) {
 		this.creationDate = creationDate;
 	}
+	
+	public String getInvoiceId() {
+		return invoiceId;
+	}
 
-	public Double getDeliveryAmount() {
+	public void setInvoiceId(String invoiceId) {
+		this.invoiceId = invoiceId;
+	}
+
+	public Long getDeliveryAmount() {
 		return deliveryAmount;
 	}
 
-	public void setDeliveryAmount(Double deliveryAmount) {
+	public void setDeliveryAmount(Long deliveryAmount) {
 		this.deliveryAmount = deliveryAmount;
 	}
 
-	public Double getCreditedAmount() {
+	public Long getCreditedAmount() {
 		return creditedAmount;
 	}
 
-	public void setCreditedAmount(Double creditedAmount) {
+	public void setCreditedAmount(Long creditedAmount) {
 		this.creditedAmount = creditedAmount;
+	}
+	
+	public List<Credit> getCredits() {
+		return credits;
+	}
+
+	public void setCredits(List<Credit> credits) {
+		this.credits = credits;
 	}
 
 	public List<OrderRow> getOrderRows() {
